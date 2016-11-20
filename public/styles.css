@@ -1,0 +1,11 @@
+body {
+	margin:0 auto;
+}
+
+#taskList {
+	width:200px;
+}
+
+.deleteTask {
+	float: right;
+}

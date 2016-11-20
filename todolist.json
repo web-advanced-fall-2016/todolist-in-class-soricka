@@ -1,13 +1,13 @@
 [{
-        "description": "item-1",
+        "description": "Go to the grocery store",
         "id": 0
     },
     {
-        "description": "item-2",
+        "description": "Do the homework",
         "id": 1
     },
     {
-        "description": "item-3",
+        "description": "Go to school in the morning",
         "id": 2
     }
 ]
