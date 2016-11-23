@@ -22,15 +22,26 @@ window.onload=function(){
 			taskList.appendChild(div);
 
 			var description = document.createElement('p');
+			description.className = "taskName";
 			description.innerHTML = response[i].description;
 
+			var details = document.createElement('div');
+			details.className="details";
+
+			var completed = document.createElement("div");
+			completed.className ="completeButton button";
+			completed.innerHTML = "&#x2714;";
+			completed.id = response[i].id;
+
 			var deleteButton = document.createElement('span');
-			deleteButton.className = "deleteTask";
-			deleteButton.innerHTML = "X";
+			deleteButton.className = "deleteTask button";
+			deleteButton.innerHTML = "&#x2715;";
 
-
+			
 			div.appendChild(description);
-			div.appendChild(deleteButton);
+			div.appendChild(details);
+			details.appendChild(deleteButton);
+			details.appendChild(completed);
 
 			// $.ajax({
 			// 	method:"GET",
@@ -74,6 +85,7 @@ function sendTask(data){
         })
         .then(function(res) {
             console.log("The result is" + res);
+            saveTask();
             // res.json(res);
         })
 
@@ -85,6 +97,22 @@ function sendTask(data){
 
 }
 
+var xdelete = document.getElementsByClassName("deleteTask");
+console.log(xdelete);
+
+for(var i = 0; i < xdelete.length; i++){
+	xdelete[i].addEventListener('click', function(){
+		deleteTask();
+	});
+}
+
+
+
+function deleteTask(){
+	console.log("delete")
+
+}
+
 
 function saveTask(){
 	// console.log("running");
@@ -92,13 +120,7 @@ function saveTask(){
 	var taskForm = document.getElementById("taskForm"); 
 	var submitButton = document.getElementById("button");
 
-	submitButton.addEventListener('submit', function(evnt){
-		evnt.preventDefault();
-
-		var form = taskForm;
-
-	});
-
+	
 
 	var taskInput = document.getElementById("taskInput");
 	var task = taskInput.value;
@@ -114,9 +136,9 @@ function saveTask(){
 	console.log(task);
 	taskDiv.innerHTML += `<p class='taskName'>${task}</p><span class='deleteTask'>x</span>`;
 
-	taskDiv.id = i++;
-	taskList.appendChild(taskDiv);
-	taskInput.value = "";
+	// taskDiv.id = i++;
+	// taskList.appendChild(taskDiv);
+	// taskInput.value = "";
 }
 
 

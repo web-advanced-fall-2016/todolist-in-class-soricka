@@ -6,35 +6,36 @@
     <title>Todo List</title>
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
      <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
    <!--  <section id="main">
         This is our class exercise!
     </section> -->
-
+    <h1>Things to Do</h1>
 
     <div id="taskListContainer">
     
-             <input id="taskInput" type="text">
-    	     <input id="button" type="submit" value="+">
+             <input id="taskInput" type="text" placeholder="What do we need to go">
+    	     <span id="doThis" onclick="saveTask()">do this</span>
    
 
     	<div id="taskList">
-    		<div class="task">
+    		<!-- <div class="task">
     			<p class="taskName">
     			This is the name of a task
     			</p>
     			<span onclick="saveTask();" class="deleteTask">
     				x
     			</span>
-    		</div>
+    		</div> -->
 
     	</div>
 
     </div>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script src="main.js"></script>
 </body>
