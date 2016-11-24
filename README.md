@@ -1,45 +1,48 @@
-# Session 11 / in class exercise
+create Index.html: create divs structure, create an text input, and link js files.
 
-### Setup
+create main.js: create functions to add tasks and delete tasks.
 
-We are going to split into groups of two. Each team should collaborate to reach our goal. It's gonna be like the idea of [pair programming](https://en.wikipedia.org/wiki/Pair_programming). Engagement of both the students in coding is important. How to split the work is totally up to the teams (i.e. one person for front-end and the other for back-end). 
+add api: todolist.json
 
-Start from planning. Before you jump into coding, take 5-10 minutes to define your approach and steps within your team. Maybe draw a simple sketch of your design. While one person is coding, the other team member is responsible to provoke ideas, make sure of code validity, recommend better ways of implementation or **most importantly ask questions if he/she doesn't understand something**.
+create app.js: we set up here our server on our computer and create endpoints 
+				to navigate through our api folders.
 
-I will be roaming around between teams. You can ask me questions or Google them :). You **should** push your project to this repository before you leave the class.
+create task.js: here we connect the api to the server through router.get
 
-The base scaffold provided is nothing but the structure. Make your project as nice/functional as you can. But, **don't over complicate it**. Start with the minimal feasible goal and improve if you had time.
+create db.js: we use this to update and pull todolist.json in base of what we type in the text input.
 
-This is an opportunity to teach and learn together. Let's make it fun and productive.
+------------------------------------------------------------------------------------------
 
-Assignment link [https://classroom.github.com/group-assignment-invitations/acc7a44eff55799f00ac98333add33e6](https://classroom.github.com/group-assignment-invitations/acc7a44eff55799f00ac98333add33e6)
+back to main.js: we set up a ajax request to pull and push data from the database
 
-### Goal
+index.html: we place input inside a <form>  in which we state the url to connect to the api.
 
-Your goal is to build a very simple Todo list application. Here are some examples:
+now we want to update the api with the input text by posting to a form and send that to the server:
+index.html: generate a new input button
+main.js: in saveTask function we put an event listener on the submit button to prevent the page to refresh.
 
-[https://github.com/component/todo](https://github.com/component/todo)
+when someone clicks the submit button we run the saveTask function to save the input text on the server:
+every time submit is clicked we add an new id linked to the current text input (taskDiv.id = i++).
 
-[http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/](http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/)
+create ajax function with method:"POST", url with endpoint '/tasks'
 
-Provided within this repository is a basic scaffold that includes an `express` application that runs a serve on `localhost:3000`. Run the server with: `npm start`. Build your application on tip of this scaffold.
+run the ajax function every time a newTask is created. 
+So we save the taks on the page first with saveTask func and we then send it to the server with sendTask func.
+inside sendTask: create ajax function with method:"POST", url with endpoint '/tasks'.
+task.js: create a router.post with '/tasks' endpoint
 
-You are allowed to use third party libraries/tools like JQuery/Bootstrap.
+STUCK: localHost 300 not found.
 
-#### Required features
+WHY WHY WHY
 
-- Add new item.
-- Remove existing items.
-- Viewer should be able to see all the existing items.
-- Each Item should at least have a description.
-- List should be persistent upon reloading the page. In other words, it should be persistent as long as the server instance is running.
 
-#### Bonus features
 
-- Update existing items.
-- Improve UX/UI by adding signifiers for successful save/remove/update of items on server.
-- Save the items on server. In other words, make it persistent. (Save it in a `.json` file or a database if interested/checkout `mongoose` )
 
+
+
+
+main.js: set up the delete button: add a <span></span> and a <p><p/> 
+		inside task div every time a new text is added into the text input.
 
 
 
