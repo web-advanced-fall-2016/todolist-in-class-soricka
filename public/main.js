@@ -78,15 +78,17 @@ function sendTask(data){
 	let request = new Request(`${url}/tasks`, config);
 	  fetch(request)
         .then(function(res) {
-            if (res.status == 200)
+            if (res.status == 200){
                 return res.json();
-            else
+            }
+            else{
                 throw new Error('Something went wrong on api server!');
+            }
         })
         .then(function(res) {
             console.log("The result is" + res);
-            saveTask();
-            // res.json(res);
+            // saveTask();
+            res.json(res);
         })
 
     .catch(function(err) {
@@ -97,21 +99,6 @@ function sendTask(data){
 
 }
 
-var xdelete = document.getElementsByClassName("deleteTask");
-console.log(xdelete);
-
-for(var i = 0; i < xdelete.length; i++){
-	xdelete[i].addEventListener('click', function(){
-		deleteTask();
-	});
-}
-
-
-
-function deleteTask(){
-	console.log("delete")
-
-}
 
 
 function saveTask(){
@@ -136,9 +123,9 @@ function saveTask(){
 	console.log(task);
 	taskDiv.innerHTML += `<p class='taskName'>${task}</p><span class='deleteTask'>x</span>`;
 
-	// taskDiv.id = i++;
-	// taskList.appendChild(taskDiv);
-	// taskInput.value = "";
+	taskDiv.id = i++;
+	taskList.appendChild(taskDiv);
+	taskInput.value = "";
 }
 
 
@@ -147,14 +134,3 @@ function deleteTask(){
 	var deleteButton = document.querySelectorAll("deleteTask");
 	console.log(deleteButton);
 }
-
-var button = document.getElementById("button");
-
-button.addEventListener('click', function(e){
-		e.preventDefault();
-		// console.log("clicked");
-
-		// runs save task function if clicked
-		saveTask();
-
-	});
