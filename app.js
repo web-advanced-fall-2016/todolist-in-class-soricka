@@ -16,9 +16,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/tasks', );
 
+app.use(function(req,res,next){
+	next();
+})
+
 app.get('/tasks', function(req, res, next){
 	res.json(db.getTaskList());
 	let tasks = db.getTaskList();
+	next();
 });
 
 app.get('/tasks/:task_id', function(req,res,next){
@@ -31,14 +36,15 @@ app.get('/tasks/:task_id', function(req,res,next){
 		res.json("not found");
 	}
 
-	next();
+	// next();
 })
 
 app.post('/tasks', function(req, res, next){
 	db.getTaskList(req.body);
 	console.log(req.body);
 	tasks.push(req.body);
-	tasks.pop(req.body);
+	// tasks.pop(req.body);
+	// next();
 });
 
 
