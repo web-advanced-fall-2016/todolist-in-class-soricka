@@ -5,7 +5,7 @@ var db = {
 	getTaskList: function(){
 		
 			var tsk = tasks.slice(0);
-			console.log("going");
+			// console.log("going");
 			return tsk;
 		},
 		getTask: (id) => {
@@ -13,6 +13,7 @@ var db = {
 				if(task.id == id)
 
 					return Object.assign({}, task);
+					
 			}
 			return false;
 		},
